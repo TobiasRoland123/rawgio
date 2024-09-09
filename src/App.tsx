@@ -1,33 +1,13 @@
-import { Grid, GridItem } from '@chakra-ui/react';
+import { Grid, GridItem, Text } from '@chakra-ui/react';
 import { Show, Hide } from '@chakra-ui/react';
 import './index.css';
 import NavBar from './components/NavBar';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
-const apiClient = axios.create({ baseURL: 'https://api.rawg.io/api', params: { key: import.meta.env.VITE_API_KEY } });
-
-interface Game {
-  id: number;
-  name: string;
-}
-
-interface GameResponse {
-  count: number;
-  results: Game[];
-}
+import { apiClient } from './services/api-client';
+import { GameGrid } from './components/GameGrid';
 
 function App() {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    apiClient
-      .get<GameResponse>('/games')
-      .then((response) => setGames(response.data.results))
-      .catch((error) => setError(error.message));
-  }, []);
-
   return (
     <Grid
       templateAreas={{
@@ -61,7 +41,7 @@ function App() {
         bg='green.300'
         area={'main'}
       >
-        {games && games.map((game) => <h1 key={game.id}>{game.name}</h1>)}
+        <GameGrid />
       </GridItem>
     </Grid>
   );
