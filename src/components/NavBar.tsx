@@ -11,6 +11,7 @@ const NavBar = () => {
         boxSize={'60px'}
       />
       <Text> Navbar</Text>
+      <div> 💩💩💩💩💩</div>
     </HStack>
   );
 };
