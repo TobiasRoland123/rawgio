@@ -38,7 +38,7 @@ function App() {
       </Show>
       <GridItem
         pl='2'
-        bg='green.300'
+        // bg='green.300'
         area={'main'}
       >
         <GameGrid />
