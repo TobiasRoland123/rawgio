@@ -9,9 +9,14 @@ interface Props {
 
 const PlatformIconsList = ({ platforms }: Props) => {
   return (
-    <HStack spacing={2}>
+    <HStack
+      spacing={2}
+      as={'ul'}
+    >
       {platforms.map((platform) => (
-        <PlatformIcon platformSlug={platform.slug} />
+        <li key={`platform-${platform.id}`}>
+          <PlatformIcon platformSlug={platform.slug} />
+        </li>
       ))}
     </HStack>
   );

@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { apiClient } from './services/api-client';
 import { GameGrid } from './components/GameGrid';
+import GenreList from './components/GenreList';
 
 function App() {
   return (
@@ -30,10 +31,9 @@ function App() {
       <Show above='lg'>
         <GridItem
           pl='2'
-          bg='pink.300'
           area={'Aside'}
         >
-          Aside
+          <GenreList />
         </GridItem>
       </Show>
       <GridItem
