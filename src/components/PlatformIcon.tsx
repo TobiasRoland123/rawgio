@@ -1,5 +1,5 @@
 import { Icon, Text } from '@chakra-ui/react';
-import React from 'react';
+
 import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox } from 'react-icons/fa';
 import { BsNintendoSwitch } from 'react-icons/bs';
 

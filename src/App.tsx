@@ -1,10 +1,7 @@
-import { Grid, GridItem, Text } from '@chakra-ui/react';
-import { Show, Hide } from '@chakra-ui/react';
+import { Grid, GridItem } from '@chakra-ui/react';
+import { Show } from '@chakra-ui/react';
 import './index.css';
 import NavBar from './components/NavBar';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { apiClient } from './services/api-client';
 import { GameGrid } from './components/GameGrid';
 import GenreList from './components/GenreList';
 
@@ -13,18 +10,22 @@ function App() {
     <Grid
       templateAreas={{
         lg: `
-                  "Nav Nav"
+                  "nav nav"
                   "Aside main"
                   `,
         base: `
-                  "Nav" 
+                  "nav" 
                   "main"
                   `,
+      }}
+      templateColumns={{
+        lg: '200px 1fr',
+        base: '1fr',
       }}
     >
       <GridItem
         pl='2'
-        area={'Nav'}
+        area={'nav'}
       >
         <NavBar />
       </GridItem>

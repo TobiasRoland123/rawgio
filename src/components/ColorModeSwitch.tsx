@@ -1,4 +1,4 @@
-import { Button, useColorMode } from '@chakra-ui/react';
+import { useColorMode } from '@chakra-ui/react';
 import { Switch } from '@chakra-ui/react';
 
 export function ColorModeSwitch() {
