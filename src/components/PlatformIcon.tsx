@@ -1,6 +1,6 @@
 import { Icon, Text } from '@chakra-ui/react';
 
-import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox } from 'react-icons/fa';
+import { FaAndroid, FaApple, FaAppStoreIos, FaGlobe, FaLinux, FaPlaystation, FaWindows, FaXbox } from 'react-icons/fa';
 import { BsNintendoSwitch } from 'react-icons/bs';
 
 interface Props {
@@ -25,6 +25,8 @@ const PlatformIcon = ({ platformSlug }: Props) => {
       return <Icon as={FaAndroid} />;
     case 'linux':
       return <Icon as={FaLinux} />;
+    case 'web':
+      return <Icon as={FaGlobe} />;
 
     default:
       return <Text>{platformSlug ? platformSlug : 'Unknown platform'}</Text>;

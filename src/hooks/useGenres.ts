@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { apiClient } from '../services/api-client';
 import useData from './useData';
 
 export interface Genre {
@@ -9,10 +7,10 @@ export interface Genre {
   image_background: string;
 }
 
-interface GenreResponse {
-  count: number;
-  results: Genre[];
-}
+// interface GenreResponse {
+//   count: number;
+//   results: Genre[];
+// }
 
 const useGenres = () => useData<Genre>('/genres');
 export default useGenres;
