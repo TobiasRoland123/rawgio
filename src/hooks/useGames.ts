@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { apiClient } from '../services/api-client';
 import useData from './useData';
+import { Genre } from './useGenres';
 
 export interface Game {
   id: number;
@@ -15,6 +14,11 @@ export interface Platform {
   slug: string;
 }
 
-const useGames = () => useData<Game>('/games');
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+const useGames = ({ selectedGenre }: Props) =>
+  useData<Game>('/games', { params: { genres: selectedGenre?.id } }, [selectedGenre?.id]);
 
 export default useGames;
