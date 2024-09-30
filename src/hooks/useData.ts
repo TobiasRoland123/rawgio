@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
-import { apiClient } from '../services/api-client';
+import { useState, useEffect } from 'react';
+
 import { AxiosRequestConfig } from 'axios';
+import { apiClient } from '../services/api-client';
 
 interface Response<T> {
   count: number;
   results: T[];
 }
 
-const useData = <T>(endPoint: string, requestConfig?: AxiosRequestConfig, dependencies?: any) => {
+const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, dependencies?: any[]) => {
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -15,8 +16,9 @@ const useData = <T>(endPoint: string, requestConfig?: AxiosRequestConfig, depend
   useEffect(
     () => {
       setIsLoading(true);
+
       apiClient
-        .get<Response<T>>(endPoint, { ...requestConfig })
+        .get<Response<T>>(endpoint, { ...requestConfig })
         .then((response) => setData(response.data.results))
         .catch((error) => setError(error.message))
         .finally(() => setIsLoading(false));

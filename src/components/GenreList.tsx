@@ -2,6 +2,7 @@ import useGenres, { Genre } from '../hooks/useGenres';
 import { Button, Heading, HStack, Image, List, ListItem, SkeletonText } from '@chakra-ui/react';
 import { getCroppedImageUrl } from '../services/image-urls';
 import { Spinner } from '@chakra-ui/react';
+import { useState } from 'react';
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
@@ -10,7 +11,8 @@ interface GenreListProps {
 
 const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
   const { data: genres, error, isLoading } = useGenres();
-
+  const [isExpanded, setIsExpanded] = useState(false);
+  const displayedGenres = isExpanded ? genres : genres.slice(0, 5);
   if (error) return null;
 
   return (
@@ -35,7 +37,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
                 </HStack>
               </ListItem>
             ))
-          : genres?.map((genre) => (
+          : displayedGenres.map((genre) => (
               <ListItem
                 key={genre.id}
                 onClick={() => {
@@ -62,6 +64,14 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
                 </HStack>
               </ListItem>
             ))}
+        {genres.length > 5 && (
+          <Button
+            onClick={() => setIsExpanded(!isExpanded)}
+            mt={3}
+          >
+            {isExpanded ? 'Show Less' : 'Show More'}
+          </Button>
+        )}
       </List>
     </>
   );
