@@ -7,16 +7,17 @@ interface Response {
   results: ParentPlatform[];
 }
 
-const ParentPlatformRouter = Router();
-const ParentPlatformRepository = AppDataSource.getRepository(ParentPlatform);
+const parentPlatformRouter = Router();
+const parentPlatformsRepository = AppDataSource.getRepository(ParentPlatform);
 
-// Get all ParentPlatforms
-ParentPlatformRouter.get('/', async (req, res) => {
-  const ParentPlatforms = await ParentPlatformRepository.find();
+// Get all parent platforms
+parentPlatformRouter.get('/', async (req, res) => {
+  const parentPlatforms = await parentPlatformsRepository.find();
   const response: Response = {
-    count: ParentPlatforms.length,
-    results: ParentPlatforms,
+    count: parentPlatforms.length,
+    results: parentPlatforms,
   };
   res.send(response);
 });
-export default ParentPlatformRouter;
+
+export default parentPlatformRouter;
