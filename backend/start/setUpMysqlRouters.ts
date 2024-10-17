@@ -1,8 +1,8 @@
 import express from 'express';
-import gameRouter from '../routers/gameMyslqRouter';
+import gameRouter from '../routers/gameMysqlRouter';
 import genreRouter from '../routers/genreMysqlRouter';
 import storeRouter from '../routers/storeMysqlRouter';
-import platformRouter from '../routers/parent_platformMysqlRoute';
+import platformRouter from '../routers/parent_platformMysqlRouter';
 
 const setupMysqlRouters = (app: express.Application) => {
   app.use('/games', gameRouter);

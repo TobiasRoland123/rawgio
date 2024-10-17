@@ -1,8 +1,8 @@
 import { Column, Entity, ManyToMany } from 'typeorm';
 import { Game } from './Game';
 
-@Entity('genres', { schema: 'rawgDatabase' })
-export class Genre {
+@Entity('store', { schema: 'rawgDatabase' })
+export class Store {
   @Column('int', { primary: true, name: 'id' })
   id!: number;
 
@@ -15,6 +15,6 @@ export class Genre {
   @Column('varchar', { name: 'image_background', nullable: true, length: 255 })
   imageBackground!: string | null;
 
-  @ManyToMany(() => Game, (games) => games.genres)
+  @ManyToMany(() => Game, (games) => games.stores)
   games!: Game[];
 }
