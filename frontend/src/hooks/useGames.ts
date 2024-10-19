@@ -10,6 +10,9 @@ export interface Game {
   metacritic: number;
 }
 
+// Re-exporting Platform so other files can import it
+export type { Platform };
+
 const useGames = (gameQuery: GameQuery) =>
   useData<Game>(
     '/games',
