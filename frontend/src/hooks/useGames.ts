@@ -1,6 +1,6 @@
 import { GameQuery } from '../App';
 import useData from './useData';
-import { Platform } from './usePlatforms';
+import { Platform } from '../hooks/usePlatforms';
 
 export interface Game {
   id: number;
@@ -22,4 +22,5 @@ const useGames = (gameQuery: GameQuery) =>
     },
     [gameQuery]
   );
+
 export default useGames;
