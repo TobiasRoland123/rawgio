@@ -1,6 +1,6 @@
 import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
-import { Genre } from './Genres';
-import { ParentPlatform } from './ParentPlatforms';
+import { Genre } from './Genre';
+import { ParentPlatform } from './ParentPlatform';
 import { Store } from './Store';
 
 @Entity('games', { schema: 'rawgDatabase' })
@@ -33,7 +33,7 @@ export class Game {
     inverseJoinColumns: [{ name: 'parent_platforms_id', referencedColumnName: 'id' }],
     schema: 'rawgDatabase',
   })
-  parentPlatforms!: ParentPlatform[];
+  parent_platforms!: ParentPlatform[];
 
   @ManyToMany(() => Store, (stores) => stores.games)
   @JoinTable({

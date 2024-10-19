@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { Genre } from '../entities/Genres';
+import { Genre } from '../entities/Genre';
 import { AppDataSource } from '../start/data-source';
 
 interface Response {

@@ -15,9 +15,7 @@ const entitiesPath = isProduction ? path.join(__dirname, '../entities/**/*.js') 
 export const AppDataSource = new DataSource({
   type: 'mysql',
   url: connectionString,
-  synchronize: true,
+  synchronize: false,
   logging: true,
   entities: [entitiesPath],
-  subscribers: [],
-  migrations: [],
 });
