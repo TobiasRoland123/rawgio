@@ -12,6 +12,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const entitiesPath = isProduction ? path.join(__dirname, '../entities/**/*.js') : path.join(__dirname, '../entities/**/*.ts');
 
+console.log('isProduction', isProduction);
+
 export const AppDataSource = new DataSource({
   type: 'mysql',
   url: connectionString,
